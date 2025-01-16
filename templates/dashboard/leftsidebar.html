@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="nav flex-column nav-pills bg-light" aria-orientation="vertical"> <!-- Corrected aria-orientation syntax -->
+            <a href="{% url 'dashboard' %}" class="nav-link text-dark {% if '/dashboard/' == request.path %}bg-warning{% endif %}">Dashboard</a> <!-- Provide actual links -->
+            <a href="{% url 'categories' %}" class="nav-link text-dark {% if '/categories/' in request.path %} bg-warning {% endif %}">Categories</a> <!-- Provide actual links -->
+            <a href="#">Posts</a> <!-- Provide actual links -->
+            <a href="#">Logout</a> <!-- Provide actual links -->
+        </div>
+    </div>
