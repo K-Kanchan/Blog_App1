@@ -12,7 +12,7 @@ def home(request):
     categories = Category.objects.all()
     featured_post=Blogs.objects.filter(is_featured=True,status='published')
     posts=Blogs.objects.filter(is_featured=False,status='published')
-    #print(posts)
+    
     context={
         'categories':categories,
         'featured_post':featured_post,
@@ -41,10 +41,10 @@ def login(request):
             password = form.cleaned_data['password']
             user = auth.authenticate(username=username, password=password)
             if user is not None:
-                auth.login(request, user)  # Log the user in
-                return redirect('dashboard')  # Redirect to the home page after successful login
+                auth.login(request, user)  
+                return redirect('dashboard')  
     else:
-        form = AuthenticationForm()  # If GET request, create a blank form
+        form = AuthenticationForm()  
     
     context = {
         'form': form
